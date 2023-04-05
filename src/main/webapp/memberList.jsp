@@ -25,6 +25,16 @@
 			
 			rs = stmt.executeQuery(sql);
 			
+			while(rs.next()) { // rs 안에 들어있는 레코드의 개수만큼 반복
+				String mid = rs.getString("id");
+				String mpw = rs.getString("pw");
+				String mname = rs.getString("name");
+				String memail = rs.getString("email");
+				String msignuptime = rs.getString("signuptime"); // 날짜(getDate)는 문자열로도 저장 가능
+				
+				out.println(mid + " / " + mpw + " / " + mname + " / " + memail + " / " + msignuptime + "<br>");
+			}
+			
 		} catch(ClassNotFoundException e) {
 			out.println("DB 드라이버 로딩 실패");
 		} catch(SQLException e) {
