@@ -19,15 +19,18 @@
 		String url = "jdbc:mysql://localhost:3306/jsp_testdb";
 		String username = "root";
 		String password = "1234";
-		String sql = "INSERT INTO members(id, pw, name, emil) VALUES ('"+mid+"', '"+mpw+"', '"+mname+"', '"+memail+"')";
+		String sql = "INSERT INTO members(id, pw, name, email) VALUES ('"+mid+"', '"+mpw+"', '"+mname+"', '"+memail+"')";
 		
 		Connection conn = null;
 	
-		
 		try {
 			Class.forName(driverName); // 드라이버 로딩
 			conn = DriverManager.getConnection(url, username, password); // 연결 생성
-			out.println("DB 연결 성공!!!!! : " + conn);
+			Statement stmt = conn.createStatement();
+			
+			int dbFlag = stmt.executeUpdate(sql); // sql문 실행
+			// sql문이 성공적으로 실행되면 db에서 1이 반환되고, 아니면 다른 값
+			// SELECT : executeQuery | 나머지(INSERT, DELETE, UPDATE) : executeUpdate
 			
 		} catch(ClassNotFoundException e) {
 			out.println("DB 드라이버 로딩 실패!!!!!");
