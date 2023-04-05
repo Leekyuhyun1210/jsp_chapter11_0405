@@ -31,11 +31,16 @@
 			int dbFlag = stmt.executeUpdate(sql); // sql문 실행
 			// sql문이 성공적으로 실행되면 db에서 1이 반환되고, 아니면 다른 값
 			// SELECT : executeQuery | 나머지(INSERT, DELETE, UPDATE) : executeUpdate
+			if(dbFlag == 1) {
+				out.println("회원가입 성공");
+			} else {
+				out.println("회원가입 실패");
+			}
 			
 		} catch(ClassNotFoundException e) {
-			out.println("DB 드라이버 로딩 실패!!!!!");
+			out.println("DB 드라이버 로딩 실패");
 		} catch(SQLException e) {
-			out.println("DB 연결 실패!!!!!");
+			out.println("DB 연결 실패");
 		} finally {
 			try {
 				if(conn != null) {
