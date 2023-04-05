@@ -5,23 +5,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>my sql 연동 체크</title>
+<title>회원가입 성공</title>
 </head>
 <body>
+	<%
+		String mid = request.getParameter("id");
+		String mpw = request.getParameter("pw");
+		String mname = request.getParameter("name");
+		String memail = request.getParameter("email");
+	%>
 	<%
 		String driverName = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/jsp_testdb";
 		String username = "root";
 		String password = "1234";
+		String sql = "INSERT INTO members(id, pw, name, emil) VALUES ('"+mid+"', '"+mpw+"', '"+mname+"', '"+memail+"')";
 		
 		Connection conn = null;
+	
 		
 		try {
 			Class.forName(driverName); // 드라이버 로딩
 			conn = DriverManager.getConnection(url, username, password); // 연결 생성
 			out.println("DB 연결 성공!!!!! : " + conn);
 			
-		} catch(ClassNotFoundException e) {	
+		} catch(ClassNotFoundException e) {
 			out.println("DB 드라이버 로딩 실패!!!!!");
 		} catch(SQLException e) {
 			out.println("DB 연결 실패!!!!!");
