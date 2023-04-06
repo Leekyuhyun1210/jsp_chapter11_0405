@@ -18,7 +18,7 @@
 		String sql = "DELETE FROM members WHERE id = ?";
 		
 		Connection conn = null;
-		//Statement stmt = null;
+		// Statement stmt = null;
 		PreparedStatement pstmt = null;
 	
 		try {

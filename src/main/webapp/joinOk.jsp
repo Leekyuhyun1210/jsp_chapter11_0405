@@ -19,7 +19,7 @@
 		String url = "jdbc:mysql://localhost:3306/jsp_testdb";
 		String username = "root";
 		String password = "1234";
-		// String sql = "INSERT INTO members(id, pw, name, email) VALUES ('"+mid+"', '"+mpw+"', '"+mname+"', '"+memail+"')";
+		//String sql = "INSERT INTO members(id, pw, name, email) VALUES ('"+mid+"', '"+mpw+"', '"+mname+"', '"+memail+"')";
 		String sql = "INSERT INTO members(id, pw, name, email) VALUES (?,?,?,?)";
 		
 		Connection conn = null;
